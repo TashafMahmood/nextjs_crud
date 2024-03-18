@@ -11,7 +11,7 @@ const AddUser = () => {
     const router = useRouter()
     const addUser = async () => {
         try {
-            const result = await axios.post('/api/register-user', {
+            const result = await axios.post(`${process.env.NEXTJS_URL}/api/register-user`, {
                 name, email, phone
             })
             setName(""),

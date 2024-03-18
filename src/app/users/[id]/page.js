@@ -20,7 +20,7 @@ const EditUser = ({ params }) => {
     const getUserDetail = async () => {
         try {
             const idx = params.id
-            const res = await axios.get(`/api/get-users/${idx}`)
+            const res = await axios.get(`${process.env.NEXTJS_URL}/api/get-users/${idx}`)
             setUser(res.data.result)
             setName(res.data.result.name)
             setEmail(res.data.result.email)
@@ -34,7 +34,7 @@ const EditUser = ({ params }) => {
         const id = params.id
         const data = { name, email, phone }
         try {
-            const res = await axios.put(`/api/get-users/${id}`, data)
+            const res = await axios.put(`${process.env.NEXTJS_URL}/api/get-users/${id}`, data)
             alert("User Updated Successfully")
             window.location.href = "/users";
         } catch (error) {
